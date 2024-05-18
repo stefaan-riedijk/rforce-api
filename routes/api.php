@@ -8,19 +8,22 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\WorkoutExerciseController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 
 
 Route::group(["middleware"=>['auth:sanctum']], function() {
+    Route::post('/logout', function (Request $request) {
+        $request->user()->currentAccessToken()->delete();
+        return response()->noContent();
+    });
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
-    Route::post('/logout', function (Request $request) {
-       $request->user()->currentAccessToken()->delete();
-       return response()->noContent();
-    });
+
 });
 
+Route::get('/exercise/{id}', [WorkoutExerciseController::class,'show']);
 Route::post('/register', function (Request $request) {
     $request->validate([
         'name' => ['required', 'string', 'max:255'],

@@ -2,6 +2,10 @@
 
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades;
+use App\Models\WorkoutExercise;
+use Illuminate\Support\Facades\DB;
 
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
@@ -11,29 +15,57 @@ Artisan::command('import:csv {path}', function($path) {
     // Print that we're importing
     $this->comment('Importing '.$path.'..');
 
-    // Read contents of file
-    $contents = File::get($path);
+    // Check if exists
+    $files = Storage::disk('local')->allFiles();
+    $this->info('files in storage are: '.implode(' ',$files));
 
-    //Parse CSV lines
-    $lines = explode('\n', $contents);
+    // Read contents of file
+    $contents = Storage::disk('local')->get($path);
+    $lines = explode("\n", $contents);
+
+    // Remove duplicates
+    $lines = array_unique($lines);
+    $this->info(sizeof($lines));
+
+    // Empty database table
+    DB::table('workout_exercises')->truncate();
+    $this->info("Entries deleted. There are ".WorkoutExercise::count()." exercises in the db.");
 
     // Format data
-    // 0:
-    // 1:
-    // 2:
-    // 3:
-    // 4:
+    // 0: bodyPart
+    // 1: equipment
+    // 2: gifUrl
+    // 3: id
+    // 4: name
+    // 5: target
 
-    // Display data
-    $i =0;
-    foreach ($lines as $line) {
-        if ($i > 0) {
-            $values = str_getcsv($line);
-            $this->info($values[1].'  '.$values[2]);
-        }
-        $i++;
+    // Initialize array
+    $values = array_fill(0,sizeof(str_getcsv($lines[0])),0);
+    $this->info(implode($values));
+
+    // Loop over the CSV rows
+    for ($x = 1; $x < (sizeof($lines)-1); $x++) {
+        $values = str_getcsv($lines[$x]);
+
+        // Values from single line
+
+        // Make call to ORM
+        if (!in_array(0,$values,true)) {
+            $this->info($x);
+            $bodyPart = $values[0];
+            $equipment = $values[1];
+            $gifUrl = $values[2];
+            $id = $values[3];
+            $name = $values[4];
+            $target = $values[5];
+            WorkoutExercise::firstOrCreate([
+                'body_part'=>$bodyPart,
+                'equipment'=>$equipment,
+                'name'=>$name,
+                'target'=>$target,
+            ]);
+        };
+        $values = array_fill(0, sizeof($values), 0);
     }
-
-    // Store data on the database
 
 })->purpose('Import workout exercise dataset');
