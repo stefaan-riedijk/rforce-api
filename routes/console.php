@@ -3,13 +3,13 @@
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades;
 use App\Models\WorkoutExercise;
 use Illuminate\Support\Facades\DB;
 
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote')->hourly();
+
 
 Artisan::command('import:csv {path}', function($path) {
     // Print that we're importing

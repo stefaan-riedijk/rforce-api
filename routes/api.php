@@ -20,10 +20,10 @@ Route::group(["middleware"=>['auth:sanctum']], function() {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
-
+    Route::get('/exercise/{id}', [WorkoutExerciseController::class,'show']);
 });
 
-Route::get('/exercise/{id}', [WorkoutExerciseController::class,'show']);
+
 Route::post('/register', function (Request $request) {
     $request->validate([
         'name' => ['required', 'string', 'max:255'],
