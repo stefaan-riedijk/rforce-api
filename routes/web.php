@@ -12,4 +12,6 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
+Route::view('exercises', 'exercises.index')->middleware(['auth'])->name('exercises');
+
 require __DIR__.'/auth.php';
