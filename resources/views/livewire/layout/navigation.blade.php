@@ -91,7 +91,7 @@ new class extends Component
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('workouts')" :active="request()->routeIs('workouts')" wire:navigate>
-                {{ __('Workouts' }}
+                {{ __('Workouts') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('exercises')" :active="request()->routeIs('exercises')" wire:navigate>
                 {{ __('Exercises') }}
