@@ -15,6 +15,6 @@ class WorkoutExercise extends Model
 
     public function scopeSearch($query, $value)
     {
-        $query->where('name', 'like', "%{$value}%")->orWhere('target', 'like', "%{$value}%")->orWhere('equipment', 'like', "%{$value}%");
+        $query->where('name', 'like', "%{$value}%")->orWhere('target', 'like', "%{$value}%")->orWhere('equipment', 'like', "%{$value}%")->orWhere('body_part','like',"%{$value}%");
     }
 }

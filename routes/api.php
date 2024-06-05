@@ -10,6 +10,7 @@ use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\WorkoutExerciseController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
+use \App\Http\Controllers\ExerciseAsyncController;
 
 
 Route::group(["middleware"=>['auth:sanctum']], function() {
@@ -66,3 +67,5 @@ Route::post('/login', function (Request $request) {
 });
 
 Route::post('/forgot-password', [PasswordResetLinkController::class, 'store']);
+
+Route::get('/exercises/search',ExerciseAsyncController::class)->name('api.exercises.search');

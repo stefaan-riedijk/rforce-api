@@ -19,6 +19,11 @@ class DatabaseSeeder extends Seeder
             'email'=>'stefaanriedijk@gmail.com',
             'password'=>'superuser'
         ]);
+        User::create([
+            'name'=>'Roberto Dias',
+            'email'=>'robertorforce@gmail.com',
+            'password'=>'#21hogeschool'
+        ])
 
     }
 }
