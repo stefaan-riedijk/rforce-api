@@ -18,7 +18,7 @@
                     <div class="max-w-xl mx-auto">
                         <div>
                             <h2 class="font-semibold text-xl">Details:</h2>
-                            <ul class='pl-6 mt-4'>
+                            <ul class='pl-6 mt-3 font-medium'>
                                 <li>- Target muscle: {{ucfirst($exercise->target)}}</li>
                                 <li>- Body part used: {{ucfirst($exercise->body_part)}}</li>
                                 <li>- Equipment used: {{ucfirst($exercise->equipment)}}</li>

@@ -20,7 +20,7 @@
                         <tr class="border border-black ml-4 py-1">
                             <td>
                                 <a href="{{route('exercises.show',$exercise->id)}}">
-                                    <p class="ml-2">
+                                    <p class="ml-2 text-blue-800 underline hover:text-blue-500">
                                         {{ucfirst($exercise->name)}}
                                     </p>
                                 </a>
