@@ -14,7 +14,7 @@
                     </div>
                     <h2 class="text-xl font-semibold pl-4 ">My workouts</h2>
                     <div>
-
+                        @livewire('workouts.index', ['workouts' => $myWorkouts])
                     </div>
                     <h2 class="text-xl font-semibold pl-4 ">Favourited workouts</h2>
                     <div>

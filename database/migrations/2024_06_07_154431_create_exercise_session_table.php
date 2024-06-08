@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('workout_programs', function (Blueprint $table) {
+        Schema::create('exercise_session', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name');
-            $table->foreignId('user_id');
-            $table->text('description');
-
+            $table->foreignIdFor(App\Models\WorkoutExercise::class,'workout_exercise_id');
+            $table->foreignIdFor(App\Models\WorkoutSession::class,'workout_session_id');
+            $table->integer('num_sets');
+            $table->integer('num_reps');
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('workout_programs');
+        Schema::dropIfExists('exercise_session');
     }
 };

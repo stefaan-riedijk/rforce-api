@@ -17,4 +17,9 @@ class WorkoutExercise extends Model
     {
         $query->where('name', 'like', "%{$value}%")->orWhere('target', 'like', "%{$value}%")->orWhere('equipment', 'like', "%{$value}%")->orWhere('body_part','like',"%{$value}%");
     }
+
+    public function sessions()
+    {
+        return $this->belongsToMany(WorkoutSession::class, 'exercise_session','workout_exercise_id','workout_session_id');
+    }
 }

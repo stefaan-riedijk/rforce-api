@@ -9,22 +9,23 @@ use App\Models\WorkoutExercise;
 class ExerciseTable extends Component
 {
     use WithPagination;
+
+    // Search query
     public $search = '';
+
+    // Select parameters
     public $target = '';
     public $bodyPart = '';
     public $equipment = '';
+
 
     public function updatingSearch()
     {
         $this->resetPage();
     }
-    public function updateTarget() {
-        $this->render();
-    }
+
     public function render()
     {
-//     $targetOptions = WorkoutExercise::query()->distinct()->pluck('body_part');
-//    dd($targetOptions);
         $query = WorkoutExercise::query();
 
         if (is_string($this->target) && $this->target !== '') {
@@ -43,5 +44,9 @@ class ExerciseTable extends Component
         return view('livewire.exercises.exercise-table',[
             'exercises' => $exercises,
         ]);
+    }
+
+    public function submit() {
+
     }
 }
