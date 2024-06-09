@@ -64,9 +64,9 @@
   ]
 
     @endphp
-    <section class="mt-10">
+    <section class="mt-10 min-h-screen">
         <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden min-h-screen">
                 <div class="flex mb-6">
                     <x-input wire:model.live="search" right-icon="search" label="Search:"
                              placeholder="Search for exercises"
