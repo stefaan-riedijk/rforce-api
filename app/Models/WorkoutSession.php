@@ -16,4 +16,9 @@ class WorkoutSession extends Model
     {
         return $this->belongsToMany(WorkoutExercise::class, 'exercise_session','workout_session_id','workout_exercise_id')->withPivot('num_sets','num_reps');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -14,7 +14,11 @@ new class extends Component {
     public $selectedExerciseId;
     public $exercises = [];
 
-//    protected $listeners = ['updateNumSets'];
+    protected $rules = [
+        'workoutTitle' => 'required|min:6',
+        'workoutEst' => 'required',
+        'exercises' => 'array'
+    ];
 
     public function updateNumSets($index, $value)
     {
@@ -50,6 +54,7 @@ new class extends Component {
 
     public function submit()
     {
+        $this->validate();
         $exercises = $this->exercises;
         if (!empty($exercises)) {
             $program = WorkoutSession::create([
@@ -66,8 +71,8 @@ new class extends Component {
     }
 }; ?>
 
-<div class="h-full">
-    <form class="max-w-2xl mx-auto">
+<div class="h-full p-4">
+    <form class="max-w-2xl mx-auto space-y-1">
         <x-input wire:model="workoutTitle" label="Workout Title" placeholder="Day 1 - Upper/Lower Split"/>
         <x-input wire:model="workoutDescr" type="text" class="min-w-30" placeholder="Provide additional information about the workout program."
                  label="Workout Description (Optional)"/>
@@ -119,7 +124,7 @@ new class extends Component {
             @endforeach
 
         </div>
-        <x-wui-button wire:click="submit" light yellow class="p-2" rounded="2xl" right-icon="upload" lg label="Submit"/>
+        <x-wui-button wire:click="submit" light yellow class="p-2 mb-3" rounded="2xl" right-icon="upload" lg label="Submit"/>
+        <x-errors/>
     </form>
-    <div>Hallo</div>
 </div>

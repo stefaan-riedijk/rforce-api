@@ -14,6 +14,9 @@
                     </div>
                     <h2 class="text-xl font-semibold pl-4 ">My workouts</h2>
                     <div>
+                        @if($myWorkouts->isEmpty())
+                            <p class="text-center">You haven't added any workouts yet. Start planning them today!</p>
+                        @endif
                         @livewire('workouts.index', ['workouts' => $myWorkouts])
                     </div>
                     <h2 class="text-xl font-semibold pl-4 ">Favourited workouts</h2>

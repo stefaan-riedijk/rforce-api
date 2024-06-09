@@ -15,11 +15,11 @@ new class extends Component {
                 <x-slot name="title" class="italic !font-bold">
                     {{$workout->title}}
                 </x-slot>
-                <x-slot name="slot" class="!text-rose-500">
+                <x-slot name="slot" class="!text-rose-500 text-center items-center">
                     {{$workout->description}}
                 </x-slot>
-                <x-slot name="footer" class="flex items-center justify-between">
-                    <p>Completion time: {{$workout->estimated_duration}}</p>
+                <x-slot name="footer" class="flex flex-row justify-between">
+                     <p class="ml-auto">Completion time: {{$workout->estimated_duration}}</p>
                     <x-wui-button label="Save" primary/>
                 </x-slot>
             </x-card>
