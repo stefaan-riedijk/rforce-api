@@ -66,7 +66,7 @@
     @endphp
     <section class="mt-10 min-h-screen">
         <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden min-h-screen">
+            <div class="dark:bg-gray-800 overflow-hidden min-h-screen">
                 <div class="flex mb-6">
                     <x-input wire:model.live="search" right-icon="search" label="Search:"
                              placeholder="Search for exercises"
@@ -78,43 +78,46 @@
                         <x-select label="Body part" :options="$bodyPartOptions" wire:model.live="bodyPart"/>
                     </div>
                 </div>
-                <table class="border w-full">
-                    <tr class="border-2">
-                        <th class="capitalize bg-gray-600">Name</th>
-                        <th class="capitalize bg-gray-600">Target</th>
-                        <th class="capitalize bg-gray-600">Equipment</th>
-                        <th class="capitalize bg-gray-600">Body Part</th>
-                        <th class="capitalize bg-gray-600">Image</th>
-                    </tr>
-                    @if($exercises->total()==0)
-                        <div><p>
-                                No results match your search.
-                            </p></div>
-                    @endif
-                    @foreach ($exercises as $exercise)
-
-                        <tr class="border border-black ml-4 py-1">
-                            <td>
-                                <a href="{{route('exercises.show',$exercise->id)}}">
-                                    <p class="ml-2 text-blue-800 underline hover:text-blue-500">
-                                        {{ucfirst($exercise->name)}}
-                                    </p>
-                                </a>
-                            </td>
-                            <td>{{ucfirst($exercise->target)}}</td>
-                            <td>{{ucfirst($exercise->equipment)}}</td>
-                            <td>{{ucfirst($exercise->body_part)}}</td>
-                            <td>
-                                <image
-                                    src="https://res.cloudinary.com/drsvmmwgj/image/upload/v1716072414/workout-images/imgs/image_{{$exercise->id-1}}"
-                                    class="w-12 h-12"/>
-                            </td>
+                @if($exercises->total()==0)
+                    <div><p class="text-xl mt-6 text-center">
+                            No results match your search.
+                        </p></div>
+                @else
+                    <table class="border w-full bg-primary-100">
+                        <tr class="border-2">
+                            <th class="capitalize bg-blue-500">Name</th>
+                            <th class="capitalize bg-blue-500">Target</th>
+                            <th class="capitalize bg-blue-500">Equipment</th>
+                            <th class="capitalize bg-blue-500">Body Part</th>
+                            <th class="capitalize bg-blue-500">Image</th>
                         </tr>
-                    @endforeach
-                </table>
-                <div class="mx-auto mt-5">
-                    {{ $exercises->links() }}
-                </div>
+
+                        @foreach ($exercises as $exercise)
+
+                            <tr class="border bg-darkGray-100 border-black ml-4 py-1">
+                                <td>
+                                    <a href="{{route('exercises.show',$exercise->id)}}">
+                                        <p class="ml-2 text-blue-800 underline hover:text-blue-500">
+                                            {{ucfirst($exercise->name)}}
+                                        </p>
+                                    </a>
+                                </td>
+                                <td>{{ucfirst($exercise->target)}}</td>
+                                <td>{{ucfirst($exercise->equipment)}}</td>
+                                <td>{{ucfirst($exercise->body_part)}}</td>
+                                <td>
+                                    <image
+                                        src="https://res.cloudinary.com/drsvmmwgj/image/upload/v1716072414/workout-images/imgs/image_{{$exercise->id-1}}"
+                                        class="w-12 h-12 py-1"/>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </table>
+                    <div class="mx-auto mt-5">
+                        {{ $exercises->links() }}
+                    </div>
+                @endif
+
             </div>
         </div>
     </section>

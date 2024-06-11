@@ -1,8 +1,9 @@
 <x-guest-layout>
-    <div class="mb-6">
+    <div class="mb-6 flex">
         <x-wui-button icon="chevron-left" title="Back to Workouts"  href="{{route('workouts')}}"/>
+        <x-wui-button lg gray light class="ml-auto" icon="heart"/>
     </div>
-    <div class="w-full">
+    <div class="w-full mb-4">
         <h1 class="font-semibold text-xl text-center pb-3">
             {{$program->title}}
         </h1>
@@ -20,7 +21,7 @@
         @foreach($exercises as $exercise)
             <div class="mt-5">
                 <h2 class="text-xl text-center">{{$exercise->name}}</h2>
-                <image class="w-full h-18" src="https://res.cloudinary.com/drsvmmwgj/image/upload/v1716072414/workout-images/imgs/image_{{$exercise->id-1}}"/>
+                <image class="w-full h-18 border-gray-400 border rounded-lg" src="https://res.cloudinary.com/drsvmmwgj/image/upload/v1716072414/workout-images/imgs/image_{{$exercise->id-1}}"/>
                 <div class="ml-3">
                 <p>Sets: {{$exercise->pivot->num_reps}}</p>
                 <p>Repetitions per set: {{$exercise->pivot->num_sets}}</p>

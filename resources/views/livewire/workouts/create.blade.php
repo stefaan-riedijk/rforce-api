@@ -104,9 +104,9 @@ new class extends Component {
                         <div x-data="{ count: 0, index: '{{ $index }}' }"
                              x-init="$watch('count', value => $wire.updateNumSets(index,value))"
                              class="flex items-center gap-x-3">
-                            <x-wui-button x-on:click="count > 0 ? count-- : null" icon="minus"/>
-                            <span class="bg-teal-600 text-black px-5 py-1.5" x-text="count"></span>
-                            <x-wui-button x-on:click="count++" icon="plus"/>
+                            <x-wui-button white x-on:click="count > 0 ? count-- : null" icon="minus"/>
+                            <span class="text-black px-5 py-1.5" x-text="count"></span>
+                            <x-wui-button white x-on:click="count++" icon="plus"/>
                         </div>
                     </div>
                     <div class="ml-auto" x-data="{ amount: 0, index: '{{ $index }}'}">

@@ -33,9 +33,10 @@ Route::get('exercises/{id}', function ($id) {
 // WORKOUT SESSION ROUTES
 Route::get('workouts', function () {
     $myWorkouts = WorkoutSession::query()->where('user_id',Auth::user()->id)->orderBy('created_at','desc')->get();
-
+    $favWorkouts = WorkoutSession::query()->where('id',120000)->get();
     return view('workouts.index',[
-        'myWorkouts'=>$myWorkouts
+        'myWorkouts'=>$myWorkouts,
+        'favWorkouts'=>$favWorkouts
     ]);
 })->middleware(['auth'])->name('workouts');
 Route::view('workouts/create', 'workouts.create')->middleware(['auth'])->name('workouts.create');
