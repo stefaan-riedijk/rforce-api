@@ -62,16 +62,16 @@ new class extends Component {
     <div class="grid lg:grid-cols-4 md:grid-cols-3 grid:cols-1 gap-4 my-4">
 
         @foreach($workouts as $workout)
-            <x-card class="bg-blue-300 border border-black h-30 shadow-lg">
+            <x-card color="bg-gray-200 border-2 border-gray-400" class="border bg-gray-300 border-black h-30 shadow-lg">
                 <x-slot name="title" class="italic !font-bold">
                     <a href="{{ route('workouts.show',['id'=>$workout->id])  }}" class="">
-                        {{$workout->title}}
+                        {{ucfirst($workout->title)}}
                     </a>
                 </x-slot>
                 <x-slot name="slot" class="!text-rose-500 text-center h-12 items-center overflow-hidden">
-                    {{$workout->description}}
+                    {{ucfirst($workout->description)}}
                 </x-slot>
-                <x-slot name="footer" class=" justify-between">
+                <x-slot name="footer" class="bg-blue-300 justify-between">
                     <div class="flex flex-row">
                         <p class="">Completion time: {{$workout->estimated_duration}}</p>
                     </div>
