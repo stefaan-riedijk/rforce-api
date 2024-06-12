@@ -1,7 +1,9 @@
 <x-guest-layout>
     <div class="mb-6 flex">
         <x-wui-button icon="chevron-left" title="Back to Workouts"  href="{{route('workouts')}}"/>
-        <x-wui-button lg gray light class="ml-auto" icon="heart"/>
+        <div class="ml-auto">
+            <livewire:workouts.show.addfavorite :workout="$program"/>
+        </div>
     </div>
     <div class="w-full mb-4">
         <h1 class="font-semibold text-xl text-center pb-3">

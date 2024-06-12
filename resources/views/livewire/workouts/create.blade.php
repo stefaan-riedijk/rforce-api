@@ -15,9 +15,10 @@ new class extends Component {
     public $exercises = [];
 
     protected $rules = [
-        'workoutTitle' => 'required|min:6',
-        'workoutEst' => 'required',
-        'exercises' => 'array'
+        'workoutTitle' => 'required|string|min:6',
+        'workoutDescr' => 'required|string|min:6',
+        'workoutEst' => 'required|numeric',
+        'exercises' => 'required|array'
     ];
 
     public function updateNumSets($index, $value)

@@ -7,5 +7,5 @@ new class extends Component {
 }; ?>
 
 <div>
-    <p>Geodeffmf</p>
+    <p></p>
 </div>

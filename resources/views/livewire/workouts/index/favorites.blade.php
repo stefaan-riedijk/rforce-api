@@ -22,7 +22,7 @@ new class extends Component {
 
     public function render(): mixed
     {
-        $workouts = WorkoutSession::query()->where('user_id',Auth::user()->id)->get();
+        $workouts = Auth::user()->favorites()->get();
         if ($this->sort !== "" && $this->sort !== null) {
             $sortOptions = explode(' ', $this->sort);
             if ($sortOptions[1] == 'ASC') {
@@ -36,7 +36,7 @@ new class extends Component {
         }
 
         $this->workouts = collect($workouts);
-        return view('livewire.workouts.index', [
+        return view('livewire.workouts.index.favorites', [
             'workouts' => $workouts,
         ]);
     }
@@ -74,22 +74,9 @@ new class extends Component {
                 <x-slot name="footer" class=" justify-between">
                     <div class="flex flex-row">
                         <p class="">Completion time: {{$workout->estimated_duration}}</p>
-                        <x-wui-button x-on:click="$openModal('deleteConfirmation')" wire:click="modalOpened({{$workout->id}})" class="ml-auto"
-                                      icon="trash" zinc/>
                     </div>
                 </x-slot>
             </x-card>
         @endforeach
     </div>
-        <x-modal name="deleteConfirmation">
-            <x-card title="Consent Terms">
-                <p>
-                    Are you sure you want to delete this workout plan?
-                </p>
-                <x-slot name="footer" class="flex justify-end gap-x-4">
-                    <x-wui-button flat label="Cancel" x-on:click="close"/>
-                    <x-wui-button primary label="I Agree" x-on:click="close" wire:click="deleteWorkout({{$deleteId}})"/>
-                </x-slot>
-            </x-card>
-        </x-modal>
 </div>

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 use App\Models\WorkoutExercise;
+use App\Models\Favorite;
 
 
 // UNAUTHENTICATED ROUTES
@@ -33,7 +34,7 @@ Route::get('exercises/{id}', function ($id) {
 // WORKOUT SESSION ROUTES
 Route::get('workouts', function () {
     $myWorkouts = WorkoutSession::query()->where('user_id',Auth::user()->id)->orderBy('created_at','desc')->get();
-    $favWorkouts = WorkoutSession::query()->where('id',120000)->get();
+    $favWorkouts = Auth::user()->favorites()->get();
     return view('workouts.index',[
         'myWorkouts'=>$myWorkouts,
         'favWorkouts'=>$favWorkouts

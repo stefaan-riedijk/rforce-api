@@ -49,4 +49,8 @@ class User extends Authenticatable
     public function workouts() {
         return $this->hasMany(WorkoutSession::class);
     }
+
+    public function favorites() {
+        return $this->belongsToMany(WorkoutSession::class,'favorites','user_id','workout_session_id');
+    }
 }
