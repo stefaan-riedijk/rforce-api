@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WorkoutAsyncController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -69,3 +70,5 @@ Route::post('/login', function (Request $request) {
 Route::post('/forgot-password', [PasswordResetLinkController::class, 'store']);
 
 Route::get('/exercises/search',ExerciseAsyncController::class)->name('api.exercises.search');
+
+Route::get('/workouts/search',WorkoutAsyncController::class)->name('api.workouts.search');

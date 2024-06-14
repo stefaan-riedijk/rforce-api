@@ -53,5 +53,8 @@ Route::get('workouts/{id}', function ($id) {
     }
 })->name('workouts.show');
 
+//CALENDAR ROUTES
+Route::view('/calendar','calendar.index')->name('calendar');
+Route::view('/calendar/newItem','calendar.newitem')->name('calendar.newitem');
 
 require __DIR__ . '/auth.php';
