@@ -62,7 +62,7 @@ new class extends Component {
     <div class="grid lg:grid-cols-4 md:grid-cols-3 grid:cols-1 gap-4 my-4">
 
         @foreach($workouts as $workout)
-            <x-card class="bg-blue-300 border border-black h-30 shadow-lg">
+            <x-card class="bg-gray-300 border border-black h-30 shadow-lg">
                 <x-slot name="title" class="italic !font-bold">
                     <a href="{{ route('workouts.show',['id'=>$workout->id])  }}" class="">
                         {{$workout->title}}
@@ -73,7 +73,7 @@ new class extends Component {
                 </x-slot>
                 <x-slot name="footer" class=" justify-between">
                     <div class="flex flex-row">
-                        <p class="">Completion time: {{$workout->estimated_duration}}</p>
+                        <p class="">Completion time: {{$workout->estimated_duration}} mins.</p>
                         <x-wui-button x-on:click="$openModal('deleteConfirmation')" wire:click="modalOpened({{$workout->id}})" class="ml-auto"
                                       icon="trash" zinc/>
                     </div>

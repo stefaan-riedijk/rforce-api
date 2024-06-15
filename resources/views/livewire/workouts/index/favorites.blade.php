@@ -73,7 +73,7 @@ new class extends Component {
                 </x-slot>
                 <x-slot name="footer" class="bg-blue-300 justify-between">
                     <div class="flex flex-row">
-                        <p class="">Completion time: {{$workout->estimated_duration}}</p>
+                        <p class="">Completion time: {{$workout->estimated_duration}} mins.</p>
                     </div>
                 </x-slot>
             </x-card>

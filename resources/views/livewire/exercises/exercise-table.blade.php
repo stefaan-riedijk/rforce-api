@@ -83,7 +83,7 @@
                             No results match your search.
                         </p></div>
                 @else
-                    <table class="border w-full bg-primary-100">
+                    <table class="border w-full bg-primary-100 shadow-lg">
                         <tr class="border-2">
                             <th class="capitalize bg-blue-500">Name</th>
                             <th class="capitalize bg-blue-500">Target</th>
@@ -108,7 +108,7 @@
                                 <td>
                                     <image
                                         src="https://res.cloudinary.com/drsvmmwgj/image/upload/v1716072414/workout-images/imgs/image_{{$exercise->id-1}}"
-                                        class="w-12 h-12 py-1"/>
+                                        class="w-12 h-12 py-1 rounded-md"></image>
                                 </td>
                             </tr>
                         @endforeach

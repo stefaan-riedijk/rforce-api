@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="w-full mb-4">
-        <h1 class="font-semibold text-xl text-center pb-3">
+        <h1 class="font-semibold text-2xl text-center pb-3">
             {{$program->title}}
         </h1>
         <h3>
@@ -22,8 +22,8 @@
 
         @foreach($exercises as $exercise)
             <div class="mt-5">
-                <h2 class="text-xl text-center">{{$exercise->name}}</h2>
-                <image class="w-full h-18 border-gray-400 border rounded-lg" src="https://res.cloudinary.com/drsvmmwgj/image/upload/v1716072414/workout-images/imgs/image_{{$exercise->id-1}}"/>
+                <h2 class="text-xl font-semibold text-center">{{ucfirst($exercise->name)}}</h2>
+                <image class="w-2/3 mx-auto mt-4 mb-4 shadow-lg h-18 border-gray-400 border rounded-lg" src="https://res.cloudinary.com/drsvmmwgj/image/upload/v1716072414/workout-images/imgs/image_{{$exercise->id-1}}"></image>
                 <div class="ml-3">
                 <p>Sets: {{$exercise->pivot->num_reps}}</p>
                 <p>Repetitions per set: {{$exercise->pivot->num_sets}}</p>

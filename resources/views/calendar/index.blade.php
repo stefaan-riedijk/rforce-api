@@ -6,10 +6,10 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-8xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-blue-300 pb-5 pt-5 border-2 border-gray-300 dark:bg-gray-800 shadow-sm sm:rounded-lg">
                 <div class="p-6 flex text-gray-900 dark:text-gray-100">
-                    <x-wui-button class="mr-3" icon="arrow-left" href="{{ route('workouts') }}">Back to workout overview
+                    <x-wui-button md class="mr-3 h-10 align-middle" icon="arrow-left" href="{{ route('workouts') }}">Back to workout overview
                     </x-wui-button>
                     <livewire:calendar.additem/>
                 </div>
