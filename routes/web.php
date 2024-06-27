@@ -5,17 +5,18 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 use App\Models\WorkoutExercise;
-use App\Models\Favorite;
+use App\Http\Controllers\ArticleController;
 
 
 // UNAUTHENTICATED ROUTES
 Route::view('/', 'welcome');
+Route::get('/blog',[ArticleController::class,'index'])->name('blog');
+Route::get('/blog/{id}', [ArticleController::class,'show'])->name('blog.article');
 
 
 // BREEZE DEFAULT ROUTES
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+Route::get('/dashboard',\App\Http\Controllers\DashboardController::class)->middleware(['auth'])->name('dashboard');
+
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');

@@ -12,17 +12,21 @@ new class extends Component {
 
     public function deleteWorkout($id)
     {
-        $this->workouts->where('id',$id)->first()->delete();
+        $this->workouts->where('id', $id)->first()->delete();
 //        dd($workout);
         WorkoutSession::query()->where('id', $id)->delete();
 
         $this->render();
     }
-
+    public function showView($id) {
+        redirect()->route('workouts.show', [
+            'id'=>$id
+        ]);
+    }
 
     public function render(): mixed
     {
-        $workouts = WorkoutSession::query()->where('user_id',Auth::user()->id)->get();
+        $workouts = WorkoutSession::query()->where('user_id', Auth::user()->id)->get();
         if ($this->sort !== "" && $this->sort !== null) {
             $sortOptions = explode(' ', $this->sort);
             if ($sortOptions[1] == 'ASC') {
@@ -43,7 +47,7 @@ new class extends Component {
 
     public function modalOpened($id)
     {
-        $this->deleteId=$id;
+        $this->deleteId = $id;
     }
 }; ?>
 <div>
@@ -62,11 +66,21 @@ new class extends Component {
     <div class="grid lg:grid-cols-4 md:grid-cols-3 grid:cols-1 gap-4 my-4">
 
         @foreach($workouts as $workout)
-            <x-card class="bg-gray-300 border border-black h-30 shadow-lg">
+            <x-card class="bg-gray-300 cursor-pointer border border-black h-30 shadow-lg" wire:click="showView({{$workout->id}})">
                 <x-slot name="title" class="italic !font-bold">
                     <a href="{{ route('workouts.show',['id'=>$workout->id])  }}" class="">
                         {{$workout->title}}
                     </a>
+                </x-slot>
+                <x-slot name="action">
+                    <x-wui-dropdown align="left" width="w-32" class="w-32 align-left">
+                        <x-wui-dropdown.item class="justify-middle" icon="pencil">Edit</x-wui-dropdown.item>
+                        {{--                        <x-wui-dropdown.item seperator/>--}}
+                        <x-wui-dropdown.item class="text-red-600 justify-middle" icon="trash"
+                                             x-on:click="$openModal('deleteConfirmation')"
+                                             wire:click="modalOpened({{$workout->id}})">Delete
+                        </x-wui-dropdown.item>
+                    </x-wui-dropdown>
                 </x-slot>
                 <x-slot name="slot" class="!text-rose-500 text-center h-12 items-center overflow-hidden">
                     {{$workout->description}}
@@ -74,22 +88,23 @@ new class extends Component {
                 <x-slot name="footer" class=" justify-between">
                     <div class="flex flex-row">
                         <p class="">Completion time: {{$workout->estimated_duration}} mins.</p>
-                        <x-wui-button x-on:click="$openModal('deleteConfirmation')" wire:click="modalOpened({{$workout->id}})" class="ml-auto"
-                                      icon="trash" zinc/>
+{{--                        <x-wui-button x-on:click="$openModal('deleteConfirmation')"--}}
+{{--                                      wire:click="modalOpened({{$workout->id}})" class="ml-auto"--}}
+{{--                                      icon="trash" zinc/>--}}
                     </div>
                 </x-slot>
             </x-card>
         @endforeach
     </div>
-        <x-modal name="deleteConfirmation">
-            <x-card title="Consent Terms">
-                <p>
-                    Are you sure you want to delete this workout plan?
-                </p>
-                <x-slot name="footer" class="flex justify-end gap-x-4">
-                    <x-wui-button flat label="Cancel" x-on:click="close"/>
-                    <x-wui-button primary label="I Agree" x-on:click="close" wire:click="deleteWorkout({{$deleteId}})"/>
-                </x-slot>
-            </x-card>
-        </x-modal>
+    <x-modal name="deleteConfirmation">
+        <x-card title="Do you want to delete this program?">
+            <p>
+                Are you sure you want to delete this workout plan?
+            </p>
+            <x-slot name="footer" class="flex justify-end gap-x-4">
+                <x-wui-button flat label="Cancel" x-on:click="close"/>
+                <x-wui-button primary label="Delete" x-on:click="close" wire:click="deleteWorkout({{$deleteId}})"/>
+            </x-slot>
+        </x-card>
+    </x-modal>
 </div>
