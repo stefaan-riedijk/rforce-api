@@ -16,6 +16,7 @@
         <wireui:scripts />
     </head>
     <body class="font-sans text-gray-900 antialiased">
+        <wire:welcome.navigation/>
         <div class="min-h-screen bg-darkGray-300 flex flex-col sm:justify-center items-center sm:pt-0 dark:bg-gray-900">
             <div>
                 <a href="/" wire:navigate>

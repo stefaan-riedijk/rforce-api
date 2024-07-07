@@ -7,7 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-8xl mx-auto sm:px-6 lg:px-8">
-            <div class="mx-3 min-h-80 bg-green-500  border-2 dark:bg-gray-800 overflow-hidden shadow-lg rounded-lg">
+            <div class="mx-3 min-h-80 bg-blue-300  border-2 dark:bg-gray-800 overflow-hidden shadow-lg rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <div class="flex row-end-1">
                         <x-wui-button secondary light href="{{route('workouts.create')}}" right-icon="plus"

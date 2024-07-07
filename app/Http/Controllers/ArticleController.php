@@ -30,16 +30,15 @@ class ArticleController extends Controller
     {
         $query= new Query;
         $query->setContentType('blogPost')->where("fields.postSlug",$slug);
-        $entry = $this->client->getEntries($query);
+        $entries = $this->client->getEntries($query);
 
-        if (!$entry) {
+        if (!$entries) {
             abort(404);
         }
+        $article=$entries[0];
 
-        dd($entry);
-
-//        return view('blog.article', [
-//            '' => $entry
-//        ]);
+        return view('blog.article', [
+            'article' => $article
+        ]);
     }
 }
