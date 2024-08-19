@@ -15,15 +15,15 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <wireui:scripts />
     </head>
-    <body class="font-sans text-gray-900 antialiased">
+    <body class="font-sans antialiased text-gray-900">
         <wire:welcome.navigation/>
-        <div class="min-h-screen bg-darkGray-300 flex flex-col sm:justify-center items-center sm:pt-0 dark:bg-gray-900">
+        <div class="flex flex-col items-center min-h-screen bg-darkGray-300 sm:justify-center sm:pt-0 dark:bg-gray-900">
             <div>
                 <a href="/" wire:navigate>
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                    <x-logo class="w-20 h-20 text-gray-500 fill-current" />
                 </a>
             </div>
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 border-2 border-gray-400 bg-blue-300 dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg mb-6">
+            <div class="w-full px-6 py-4 mt-6 mb-6 overflow-hidden bg-blue-300 border-2 border-gray-400 shadow-md sm:max-w-md dark:bg-gray-800 sm:rounded-lg">
                 {{ $slot }}
             </div>
         </div>

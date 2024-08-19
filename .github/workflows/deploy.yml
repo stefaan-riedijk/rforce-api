@@ -1,0 +1,33 @@
+name: Deploy Application
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    crate-deployment-artifacts:
+        name: Create Deployment ARtifacts
+
+        runs-on: ubuntu-latest
+
+        steps:
+
+            - uses: appleboy/ssh-action@v1.0.3
+
+              with:
+
+                host: ${{ secrets.HOST }}
+
+                username: ${{ secrets.USERNAME }}
+
+                port: ${{ secrets.PORT }}
+
+                key: ${{ secrets.PRIVATE_KEY }}
+                
+                script: |
+                
+                    cd /home/devops/example-app
+
+                    git pull
+                    
+                    php artisan optimize:clear
