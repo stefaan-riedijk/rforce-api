@@ -66,13 +66,12 @@
     @endphp
     <section class="mt-10 min-h-screen">
         <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
-            <div class="dark:bg-gray-800 overflow-hidden min-h-screen">
-                <div class="flex mb-6">
+            <div class="dark:bg-gray-800 overflow-hidden min-h-screen rounded-lg shadow-lg">
+                <div class="flex mb-6 p-4">
                     <x-input wire:model.live="search" right-icon="search" label="Search:"
                              placeholder="Search for exercises"
                              class="text-black w-60"/>
                     <div class="ml-auto flex flex-row space-x-2">
-
                         <x-select label="Target muscle" :options="$targetOptions" wire:model.live="target"/>
                         <x-select label="Equipment" :options="$equipmentOptions" wire:model.live="equipment"/>
                         <x-select label="Body part" :options="$bodyPartOptions" wire:model.live="bodyPart"/>
@@ -83,41 +82,41 @@
                             No results match your search.
                         </p></div>
                 @else
-                    <table class="border w-full bg-primary-100 shadow-lg">
-                        <tr class="border-2">
-                            <th class="capitalize bg-blue-500">Name</th>
-                            <th class="capitalize bg-blue-500">Target</th>
-                            <th class="capitalize bg-blue-500">Equipment</th>
-                            <th class="capitalize bg-blue-500">Body Part</th>
-                            <th class="capitalize bg-blue-500">Image</th>
-                        </tr>
-
-                        @foreach ($exercises as $exercise)
-
-                            <tr class="border bg-darkGray-100 border-black ml-4 py-1">
-                                <td>
-                                    <a href="{{route('exercises.show',$exercise->id)}}">
-                                        <p class="ml-2 text-blue-800 underline hover:text-blue-500">
-                                            {{ucfirst($exercise->name)}}
-                                        </p>
-                                    </a>
-                                </td>
-                                <td>{{ucfirst($exercise->target)}}</td>
-                                <td>{{ucfirst($exercise->equipment)}}</td>
-                                <td>{{ucfirst($exercise->body_part)}}</td>
-                                <td>
-                                    <image
-                                        src="https://res.cloudinary.com/drsvmmwgj/image/upload/v1716072414/workout-images/imgs/image_{{$exercise->id-1}}"
-                                        class="w-12 h-12 py-1 rounded-md"></image>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </table>
-                    <div class="mx-auto mt-5">
+                    <div class="overflow-x-auto">
+                        <table class="w-full bg-white dark:bg-gray-700 rounded-lg overflow-hidden">
+                            <thead>
+                                <tr class="bg-blue-500 text-white">
+                                    <th class="px-4 py-3 text-left">Name</th>
+                                    <th class="px-4 py-3 text-left">Target</th>
+                                    <th class="px-4 py-3 text-left">Equipment</th>
+                                    <th class="px-4 py-3 text-left">Body Part</th>
+                                    <th class="px-4 py-3 text-left">Image</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($exercises as $exercise)
+                                    <tr class="border-b border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600">
+                                        <td class="px-4 py-3">
+                                            <a href="{{route('exercises.show',$exercise->id)}}" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200">
+                                                {{ucfirst($exercise->name)}}
+                                            </a>
+                                        </td>
+                                        <td class="px-4 py-3">{{ucfirst($exercise->target)}}</td>
+                                        <td class="px-4 py-3">{{ucfirst($exercise->equipment)}}</td>
+                                        <td class="px-4 py-3">{{ucfirst($exercise->body_part)}}</td>
+                                        <td class="px-4 py-3">
+                                            <img src="https://res.cloudinary.com/drsvmmwgj/image/upload/v1716072414/workout-images/imgs/image_{{$exercise->id-1}}"
+                                                 class="w-12 h-12 rounded-md object-cover" alt="Exercise image">
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mx-auto mt-5 p-4">
                         {{ $exercises->links() }}
                     </div>
                 @endif
-
             </div>
         </div>
     </section>

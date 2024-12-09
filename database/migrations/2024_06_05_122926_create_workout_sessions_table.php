@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('estimated_duration');
             $table->foreignId('user_id');
+            $table->boolean('is_published');
         });
     }
 

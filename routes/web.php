@@ -9,7 +9,7 @@ use App\Http\Controllers\ArticleController;
 
 
 // UNAUTHENTICATED ROUTES
-Route::view('/', 'welcome')->name('welcome');
+Route::view('/', 'index')->name('home');
 Route::get('/blog',[ArticleController::class,'index'])->name('blog');
 Route::get('/blog/{slug}', [ArticleController::class,'show'])->name('blog.article');
 Route::view('pricing','pricing')->name('pricing');
@@ -44,14 +44,13 @@ Route::get('workouts', function () {
 Route::view('workouts/create', 'workouts.create')->middleware(['auth'])->name('workouts.create');
 // ///// Show workout plan route without auth middleware
 Route::get('workouts/{id}', function ($id) {
-    $program = WorkoutSession::query()->where('id',$id)->with('user')->first();
-    $exercises = $program->exercises->all();
-    if ($program != null ) {
+    dd($id);
+    $workoutSession = WorkoutSession::with(['user','exercises'])->findOrFail($id);
+
     return view('workouts.show',[
-        'program' => $program,
-        'exercises' => $exercises
+        'program' => $workoutSession,
+        'exercises' => $workoutSession->exercises
     ]);
-    }
 })->name('workouts.show');
 
 //CALENDAR ROUTES
