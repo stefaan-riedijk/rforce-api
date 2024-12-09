@@ -24,15 +24,16 @@
         </header>
         <div
             class="relative flex min-h-screen flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
-            <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
+            <div class="relative w-full max-w-2xl px-6 py-6 lg:max-w-7xl">
 
                 <!-- Hero Section -->
                 <section class="mt-20 w-full py-20 text-center">
-                    <div class="rounded-lg bg-[url('img/hero.jpg')] bg-cover p-6">
-                        <h1 class="mb-4 text-4xl font-bold">Welcome to R-Force</h1>
-                        <p class="mb-8 text-xl">The ultimate exercise tool for health professionals</p>
+                    <div
+                        class="flex h-72 flex-col items-center justify-end rounded-lg bg-[url('img/hero.jpg')] bg-cover p-6">
+                        <h1 class="mb-4 text-3xl font-bold">Welcome to R-Force</h1>
+                        <p class="mb-8 text-xl font-bold">The ultimate exercise tool for health professionals</p>
                         <a href="#"
-                            class="rounded-lg bg-blue-500 px-6 py-3 text-white transition duration-300 hover:bg-blue-600">Get
+                            class="w-fit rounded-lg bg-blue-500 px-6 py-3 text-white transition duration-300 hover:bg-blue-600">Get
                             Started</a>
                 </section>
 
@@ -41,7 +42,7 @@
                     <h2 class="mb-12 text-center text-3xl font-semibold">Key Features</h2>
                     <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
                         <div
-                            class="rounded-lg border border-gray-300 bg-white p-6 text-center shadow-sm dark:border-gray-700 dark:bg-gray-800">
+                            class="rounded-lg border border-gray-300 bg-blue-200 p-6 text-center shadow-sm dark:border-gray-700 dark:bg-gray-800">
                             <svg class="mx-auto mb-4 h-12 w-12" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -52,7 +53,7 @@
                             <p>Create personalized exercise plans for your clients</p>
                         </div>
                         <div
-                            class="rounded-lg border border-gray-300 bg-white p-6 text-center shadow-sm dark:border-gray-700 dark:bg-gray-800">
+                            class="rounded-lg border border-gray-300 bg-blue-200 p-6 text-center shadow-sm dark:border-gray-700 dark:bg-gray-800">
                             <svg class="mx-auto mb-4 h-12 w-12" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
@@ -64,7 +65,7 @@
                             <p>Monitor and analyze client performance over time</p>
                         </div>
                         <div
-                            class="rounded-lg border border-gray-300 bg-white p-6 text-center shadow-sm dark:border-gray-700 dark:bg-gray-800">
+                            class="rounded-lg border border-gray-300 bg-blue-200 p-6 text-center shadow-sm dark:border-gray-700 dark:bg-gray-800">
                             <svg class="mx-auto mb-4 h-12 w-12" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -76,30 +77,12 @@
                         </div>
                     </div>
                 </section>
-
-                <!-- Explanation Paragraph Section -->
-                <section class="rounded-lg bg-white py-16 dark:bg-gray-800">
-                    <div class="mx-auto max-w-3xl px-6">
-                        <h2 class="mb-6 text-center text-3xl font-semibold">Why Choose R-Force?</h2>
-                        <p class="text-lg leading-relaxed">
-                            R-Force is designed specifically for health professionals who want to provide the best care
-                            for their clients. Our platform combines cutting-edge technology with evidence-based
-                            exercise science to deliver a comprehensive solution for creating, managing, and tracking
-                            exercise programs. Whether you're a physical therapist, personal trainer, or rehabilitation
-                            specialist, R-Force gives you the tools you need to optimize your clients' health and
-                            fitness journeys. With features like real-time progress tracking, customizable workout
-                            plans, and seamless client communication, R-Force empowers you to deliver personalized care
-                            at scale.
-                        </p>
-                    </div>
-                </section>
-
                 <!-- New Two-Column Section -->
-                <section class="mt-16 rounded-lg bg-white py-16 dark:bg-gray-800">
-                    <div class="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
+                <section class="my-16 rounded-lg bg-blue-200 py-16 dark:bg-gray-800">
+                    <div class="grid grid-cols-1 items-center gap-8 p-4 md:grid-cols-2">
                         <div class="overflow-hidden rounded-lg">
-                            <img src="{{ asset('images/exercise-professional.jpg') }}"
-                                alt="Health Professional using R-Force" class="h-auto w-full">
+                            <img src="{{ asset('img/physiotherapist.jpg') }}" alt="Health Professional using R-Force"
+                                class="h-auto w-full">
                         </div>
                         <div>
                             <h2 class="mb-4 text-3xl font-semibold">Empower Your Practice</h2>
@@ -116,6 +99,24 @@
                         </div>
                     </div>
                 </section>
+                <!-- Explanation Paragraph Section -->
+                <section class="rounded-lg bg-blue-200 py-16 dark:bg-gray-800">
+                    <div class="mx-auto max-w-3xl px-6">
+                        <h2 class="mb-6 text-center text-3xl font-semibold">Why Choose R-Force?</h2>
+                        <p class="text-lg leading-relaxed">
+                            R-Force is designed specifically for health professionals who want to provide the best care
+                            for their clients. Our platform combines cutting-edge technology with evidence-based
+                            exercise science to deliver a comprehensive solution for creating, managing, and tracking
+                            exercise programs. Whether you're a physical therapist, personal trainer, or rehabilitation
+                            specialist, R-Force gives you the tools you need to optimize your clients' health and
+                            fitness journeys. With features like real-time progress tracking, customizable workout
+                            plans, and seamless client communication, R-Force empowers you to deliver personalized care
+                            at scale.
+                        </p>
+                    </div>
+                </section>
+
+
 
             </div>
         </div>
