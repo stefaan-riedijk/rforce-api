@@ -38,7 +38,8 @@
                     @endif
 
                     <!-- Page Content -->
-                    <main class="mx-auto mb-4 min-h-screen max-w-4xl rounded-xl border border-gray-500 bg-darkGray-100">
+                    <main
+                        class="mx-auto mb-4 mt-32 min-h-screen max-w-4xl rounded-xl border border-gray-500 bg-darkGray-100">
                         {{ $slot }}
                     </main>
                 </div>
