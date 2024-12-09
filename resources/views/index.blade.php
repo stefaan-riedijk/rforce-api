@@ -27,17 +27,19 @@
             <div class="relative w-full max-w-2xl px-6 py-6 lg:max-w-7xl">
 
                 <!-- Hero Section -->
-                <section class="mt-20 w-full py-20 text-center">
-                    <div class="flex h-72 flex-col items-center justify-end rounded-lg bg-cover p-6"
+                <section class="w-full py-20 text-center">
+                    <div class="flex h-72 flex-col items-center justify-end rounded-lg bg-blue-200 bg-cover p-6 text-white bg-blend-overlay"
                         style="background-image: url('{{ asset('img/hero.webp') }}')">
-                        <h1 class="mb-4 text-3xl font-bold">Welcome to R-Force</h1>
-                        <p class="mb-8 text-xl font-bold">The ultimate exercise tool for health professionals</p>
+                        <h1 class="mb-4 text-3xl font-bold">Automate your fitness</h1>
+                        <p class="mb-8 text-xl font-bold">The ultimate exercise tool for health professionals! <br>
+                            Get started today and revolutionize your practice.
+                        </p>
                         <a href="#"
                             class="w-fit rounded-lg bg-blue-500 px-6 py-3 text-white transition duration-300 hover:bg-blue-600">Get
                             Started</a>
                 </section>
                 <!-- New Two-Column Section -->
-                <section class="my-16 rounded-lg bg-blue-200 py-16 dark:bg-gray-800">
+                <section class="rounded-lg bg-blue-200 py-16 dark:bg-gray-800">
                     <h1 class="text-center text-2xl font-bold">Provide your clients with a full-service workout tool
                     </h1>
                     <div class="grid grid-cols-1 items-center gap-8 p-4 md:grid-cols-2">
