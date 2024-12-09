@@ -62,7 +62,7 @@
                     </x-wui-button>
                 </a>
             @else
-                <x-wui-button href="{{ route('login') }}" outline blue rounded="full" class="h-fit min-w-fit px-3 py-2">
+                <x-wui-button href="{{ route('login') }}" outline blue rounded="full" class="px-3 py-2">
                     Log in
                 </x-wui-button>
                 @if (Route::has('register'))

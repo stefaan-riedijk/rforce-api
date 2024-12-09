@@ -28,15 +28,38 @@
 
                 <!-- Hero Section -->
                 <section class="mt-20 w-full py-20 text-center">
-                    <div
-                        class="flex h-72 flex-col items-center justify-end rounded-lg bg-[url('img/hero.jpg')] bg-cover p-6">
+                    <div class="flex h-72 flex-col items-center justify-end rounded-lg bg-cover p-6"
+                        style="background-image: url('{{ asset('img/hero.webp') }}')">
                         <h1 class="mb-4 text-3xl font-bold">Welcome to R-Force</h1>
                         <p class="mb-8 text-xl font-bold">The ultimate exercise tool for health professionals</p>
                         <a href="#"
                             class="w-fit rounded-lg bg-blue-500 px-6 py-3 text-white transition duration-300 hover:bg-blue-600">Get
                             Started</a>
                 </section>
-
+                <!-- New Two-Column Section -->
+                <section class="my-16 rounded-lg bg-blue-200 py-16 dark:bg-gray-800">
+                    <h1 class="text-center text-2xl font-bold">Provide your clients with a full-service workout tool
+                    </h1>
+                    <div class="grid grid-cols-1 items-center gap-8 p-4 md:grid-cols-2">
+                        <div class="overflow-hidden rounded-lg">
+                            <img src="{{ asset('img/physiotherapist.webp') }}" alt="Health Professional using R-Force"
+                                class="h-auto w-full">
+                        </div>
+                        <div>
+                            <h2 class="mb-4 text-3xl font-semibold">Empower Your Practice</h2>
+                            <p class="text-lg leading-relaxed">
+                                With R-Force, you can take your health and fitness practice to the next level. Our
+                                intuitive platform allows you to create custom exercise programs, track client progress
+                                in real-time, and manage your entire client base from one centralized dashboard.
+                                Experience the power of data-driven decision making and provide your clients with the
+                                personalized care they deserve.
+                            </p>
+                            <a href="#"
+                                class="mt-6 inline-block rounded-lg bg-blue-500 px-6 py-3 text-white transition duration-300 hover:bg-blue-600">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </section>
                 <!-- Features Section -->
                 <section class="py-16">
                     <h2 class="mb-12 text-center text-3xl font-semibold">Key Features</h2>
@@ -77,28 +100,7 @@
                         </div>
                     </div>
                 </section>
-                <!-- New Two-Column Section -->
-                <section class="my-16 rounded-lg bg-blue-200 py-16 dark:bg-gray-800">
-                    <div class="grid grid-cols-1 items-center gap-8 p-4 md:grid-cols-2">
-                        <div class="overflow-hidden rounded-lg">
-                            <img src="{{ asset('img/physiotherapist.jpg') }}" alt="Health Professional using R-Force"
-                                class="h-auto w-full">
-                        </div>
-                        <div>
-                            <h2 class="mb-4 text-3xl font-semibold">Empower Your Practice</h2>
-                            <p class="text-lg leading-relaxed">
-                                With R-Force, you can take your health and fitness practice to the next level. Our
-                                intuitive platform allows you to create custom exercise programs, track client progress
-                                in real-time, and manage your entire client base from one centralized dashboard.
-                                Experience the power of data-driven decision making and provide your clients with the
-                                personalized care they deserve.
-                            </p>
-                            <a href="#"
-                                class="mt-6 inline-block rounded-lg bg-blue-500 px-6 py-3 text-white transition duration-300 hover:bg-blue-600">Learn
-                                More</a>
-                        </div>
-                    </div>
-                </section>
+
                 <!-- Explanation Paragraph Section -->
                 <section class="rounded-lg bg-blue-200 py-16 dark:bg-gray-800">
                     <div class="mx-auto max-w-3xl px-6">
