@@ -12,7 +12,7 @@ use App\Http\Controllers\ArticleController;
 Route::view('/', 'index')->name('home');
 Route::get('/blog',[ArticleController::class,'index'])->name('blog');
 Route::get('/blog/{slug}', [ArticleController::class,'show'])->name('blog.article');
-Route::view('pricing','pricing')->name('pricing');
+Route::view('pricing','marketing.pricing')->name('pricing');
 
 // BREEZE DEFAULT ROUTES
 Route::get('/dashboard',\App\Http\Controllers\DashboardController::class)->middleware(['auth'])->name('dashboard');
