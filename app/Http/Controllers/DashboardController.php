@@ -20,7 +20,7 @@ class DashboardController extends Controller
             ->addColumn('Workouts Favorited', Auth::user()->favorites()->count(), '#fc8181');
 
 
-        return view('dashboard', [
+        return view('app.dashboard', [
             'columnChartModel' => $columnChartModel
         ]);
     }

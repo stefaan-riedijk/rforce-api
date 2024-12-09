@@ -23,11 +23,11 @@ Route::view('profile', 'profile')
 
 // WORKOUT EXERCISES ROUTES
 Route::get('exercises', function () {
-    return view('exercises.index');
+    return view('app.exercises.index');
 })->middleware(['auth'])->name('exercises');
 Route::get('exercises/{id}', function ($id) {
     $exercise = WorkoutExercise::query()->where('id',$id)->first();
-    return view('exercises.show',[
+    return view('app.exercises.show',[
         'exercise' => $exercise,
     ]);
 })->name('exercises.show');
@@ -36,25 +36,24 @@ Route::get('exercises/{id}', function ($id) {
 Route::get('workouts', function () {
     $myWorkouts = WorkoutSession::query()->where('user_id',Auth::user()->id)->orderBy('created_at','desc')->get();
     $favWorkouts = Auth::user()->favorites()->get();
-    return view('workouts.index',[
+    return view('app.workouts.index',[
         'myWorkouts'=>$myWorkouts,
         'favWorkouts'=>$favWorkouts
     ]);
 })->middleware(['auth'])->name('workouts');
-Route::view('workouts/create', 'workouts.create')->middleware(['auth'])->name('workouts.create');
+Route::view('workouts/create', 'app.workouts.create')->middleware(['auth'])->name('workouts.create');
 // ///// Show workout plan route without auth middleware
 Route::get('workouts/{id}', function ($id) {
-    dd($id);
     $workoutSession = WorkoutSession::with(['user','exercises'])->findOrFail($id);
 
-    return view('workouts.show',[
+    return view('app.workouts.show',[
         'program' => $workoutSession,
         'exercises' => $workoutSession->exercises
     ]);
 })->name('workouts.show');
 
 //CALENDAR ROUTES
-Route::view('/calendar','calendar.index')->name('calendar');
-Route::view('/calendar/newItem','calendar.newitem')->name('calendar.newitem');
+Route::view('/calendar','app.calendar.index')->name('calendar');
+Route::view('/calendar/newItem','app.calendar.newitem')->name('calendar.newitem');
 
 require __DIR__ . '/auth.php';
