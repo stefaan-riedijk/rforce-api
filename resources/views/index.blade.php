@@ -34,7 +34,7 @@
                         <p class="mb-8 text-xl font-bold">The ultimate exercise tool for health professionals! <br>
                             Get started today and revolutionize your practice.
                         </p>
-                        <a href="#"
+                        <a href="{{ route('dashboard') }}"
                             class="w-fit rounded-lg bg-blue-500 px-6 py-3 text-white transition duration-300 hover:bg-blue-600">Get
                             Started</a>
                 </section>
@@ -56,7 +56,7 @@
                                 Experience the power of data-driven decision making and provide your clients with the
                                 personalized care they deserve.
                             </p>
-                            <a href="#"
+                            <a href="{{ route('dashboard') }}"
                                 class="mt-6 inline-block rounded-lg bg-blue-500 px-6 py-3 text-white transition duration-300 hover:bg-blue-600">Learn
                                 More</a>
                         </div>

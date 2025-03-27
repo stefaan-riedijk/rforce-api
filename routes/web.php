@@ -10,8 +10,8 @@ use App\Http\Controllers\ArticleController;
 
 // UNAUTHENTICATED ROUTES
 Route::view('/', 'index')->name('home');
-Route::get('/blog',[ArticleController::class,'index'])->name('blog');
-Route::get('/blog/{slug}', [ArticleController::class,'show'])->name('blog.article');
+Route::view('/about/trainer','marketing.trainer')->name('trainer');
+Route::view('/about/methodology','marketing.methodology')->name('methodology');
 Route::view('pricing','marketing.pricing')->name('pricing');
 
 // BREEZE DEFAULT ROUTES

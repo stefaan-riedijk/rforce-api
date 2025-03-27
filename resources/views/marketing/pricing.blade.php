@@ -1,17 +1,17 @@
 <x-guest-layout>
-    <section class="rounded-xl bg-white dark:bg-gray-900">
-        <div class="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
+    <section class="rounded-xl">
+        <div class="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16 bg-blue-300">
             <div class="mx-auto mb-8 max-w-screen-md text-center lg:mb-12">
                 <h2 class="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">Designed for
-                    business teams like yours</h2>
-                <p class="mb-5 font-light text-gray-500 dark:text-gray-400 sm:text-xl">Here at Flowbite we focus on
-                    markets where technology, innovation, and capital can unlock long-term value and drive economic
-                    growth.</p>
+                    trainers like you!</h2>
+                <p class="mb-5 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
+                    We enable all health professionals create adequate support for their clients.
+                </p>
             </div>
             <div class="space-y-8 sm:gap-6 lg:grid lg:grid-cols-3 lg:space-y-0 xl:gap-10">
                 <!-- Pricing Card -->
                 <div
-                    class="mx-auto flex max-w-lg flex-col rounded-lg border border-gray-100 bg-white p-6 text-center text-gray-900 shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white xl:p-8">
+                    class="mx-auto flex max-w-lg flex-col rounded-lg border border-gray-100 bg-blue-100 p-6 text-center text-gray-900 shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white xl:p-8">
                     <h3 class="mb-4 text-2xl font-semibold">Starter</h3>
                     <p class="font-light text-gray-500 dark:text-gray-400 sm:text-lg">Best option for personal use & for
                         your next project.</p>
@@ -73,12 +73,12 @@
                         </li>
                     </ul>
                     <a href="#"
-                        class="rounded-lg bg-primary-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 dark:text-white dark:focus:ring-primary-900">Get
+                        class="rounded-lg bg-primary-600 px-5 py-2.5 text-center text-sm font-medium text-black hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 dark:text-white dark:focus:ring-primary-900">Get
                         started</a>
                 </div>
                 <!-- Pricing Card -->
                 <div
-                    class="mx-auto flex max-w-lg flex-col rounded-lg border border-gray-100 bg-white p-6 text-center text-gray-900 shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white xl:p-8">
+                    class="mx-auto flex max-w-lg flex-col rounded-lg border border-gray-100 bg-blue-100 p-6 text-center text-gray-900 shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white xl:p-8">
                     <h3 class="mb-4 text-2xl font-semibold">Company</h3>
                     <p class="font-light text-gray-500 dark:text-gray-400 sm:text-lg">Relevant for multiple users,
                         extended & premium support.</p>
@@ -140,12 +140,12 @@
                         </li>
                     </ul>
                     <a href="#"
-                        class="rounded-lg bg-primary-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 dark:text-white dark:focus:ring-primary-900">Get
+                        class="rounded-lg bg-primary-600 px-5 py-2.5 text-center text-sm font-medium text-black hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 dark:text-white dark:focus:ring-primary-900">Get
                         started</a>
                 </div>
                 <!-- Pricing Card -->
                 <div
-                    class="mx-auto flex max-w-lg flex-col rounded-lg border border-gray-100 bg-white p-6 text-center text-gray-900 shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white xl:p-8">
+                    class="mx-auto flex max-w-lg flex-col rounded-lg border border-gray-100 bg-blue-100 p-6 text-center text-gray-900 shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white xl:p-8">
                     <h3 class="mb-4 text-2xl font-semibold">Enterprise</h3>
                     <p class="font-light text-gray-500 dark:text-gray-400 sm:text-lg">Best for large scale uses and
                         extended redistribution rights.</p>
@@ -206,8 +206,8 @@
                             <span>Free updates: <span class="font-semibold">36 months</span></span>
                         </li>
                     </ul>
-                    <a href="#"
-                        class="rounded-lg bg-primary-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 dark:text-white dark:focus:ring-primary-900">Get
+                    <a href="{{ route('dashboard') }}"
+                        class="rounded-lg bg-primary-600 px-5 py-2.5 text-center text-sm font-medium text-black hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 dark:text-white dark:focus:ring-primary-900">Get
                         started</a>
                 </div>
             </div>

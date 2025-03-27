@@ -23,7 +23,7 @@
                     <x-slot name="trigger">
                         <button
                             class="inline-flex items-center px-3 py-2 text-gray-800 transition hover:text-blue-600 focus:outline-none focus-visible:ring-blue-500 dark:text-gray-200 dark:hover:text-blue-400 dark:focus-visible:ring-blue-400">
-                            Blog
+                            About
                             <div class="ml-1">
                                 <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 20 20">
@@ -35,13 +35,13 @@
                         </button>
                     </x-slot>
 
-                    <x-slot name="content">
-                        <div class="focus:bg-blue-100 dark:bg-gray-900">
-                            <x-dropdown-link href="{{ route('blog') }}">
-                                All
+                    <x-slot name="content" class="bg-blue-300">
+                        <div class="focus:bg-blue-100 dark:bg-gray-900 bg-blue-100">
+                            <x-dropdown-link href="{{ route('trainer') }}">
+                                The trainer
                             </x-dropdown-link>
-                            <x-dropdown-link href="{{ url('/blog/latest') }}">
-                                Latest
+                            <x-dropdown-link href="{{ route('methodology') }}">
+                                Our methodology
                             </x-dropdown-link>
                         </div>
                     </x-slot>
@@ -91,7 +91,8 @@
                 <div class="menu flex min-h-full w-80 flex-col items-center bg-blue-400 p-4 pt-8 text-lg font-bold">
                     <!-- Sidebar content here -->
                     <li><a href="{{ route('home') }}">Home</a></li>
-                    <li><a href="{{ route('blog') }}">Blog</a></li>
+                    <li><a href="{{ route('trainer') }}">Trainer</a></li>
+                    <li><a href="{{ route('methodology') }}">Methodology</a></li>
                     <div class="divider divider-primary"></div>
                     <div class="">
                         @auth
