@@ -15,9 +15,9 @@ class DashboardController extends Controller
     {
 
         $columnChartModel = (new ColumnChartModel())
-            ->setTitle('Expenses by Type')
-            ->addColumn('Workouts Created', \Illuminate\Support\Facades\Auth::user()->workouts()->count(), '#f6ad55')
-            ->addColumn('Workouts Favorited', Auth::user()->favorites()->count(), '#fc8181');
+            ->setTitle('Workouts Completed')
+            ->addColumn('Created Workouts', \Illuminate\Support\Facades\Auth::user()->workouts()->count(), '#f6ad55')
+            ->addColumn('Favorited Workouts', Auth::user()->favorites()->count(), '#fc8181');
 
 
         return view('app.dashboard', [

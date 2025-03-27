@@ -90,8 +90,8 @@
                 <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"></label>
                 <div class="menu flex min-h-full w-80 flex-col items-center bg-blue-400 p-4 pt-8 text-lg font-bold">
                     <!-- Sidebar content here -->
-                    <li><a>Sidebar Item 1</a></li>
-                    <li><a>Sidebar Item 2</a></li>
+                    <li><a href="{{ route('home') }}">Home</a></li>
+                    <li><a href="{{ route('blog') }}">Blog</a></li>
                     <div class="divider divider-primary"></div>
                     <div class="">
                         @auth

@@ -24,11 +24,11 @@ new #[Layout('layouts.guest')] class extends Component
     }
 }; ?>
 
-<div>
+<div class="">
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form wire:submit="login">
+    <form wire:submit="login" class="max-w-2xl mx-auto pt-8">
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
