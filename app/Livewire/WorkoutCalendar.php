@@ -37,7 +37,7 @@ class WorkoutCalendar extends LivewireCalendar
         $event = CalendarItem::query()->where('id',$eventId)->first();
         $workout = $event->workout()->first();
 //        dd($workout->id);
-        return redirect()->route('workouts.show',['id'=>$workout->id]);
+        return redirect()->route('workouts.show',['uuid'=>$workout->uuid]);
     }
     public function deleteEvent($eventId) {
         CalendarItem::query()->where('id',$eventId)->delete();
