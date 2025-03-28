@@ -14,7 +14,6 @@
                                       label="Start creating new programs!" class="ml-auto"/>
                     </div>
                     <div>
-
                         <h2 class="text-xl font-semibold pl-4 ">My workouts</h2>
                         <div>
                             @if($myWorkouts->isEmpty())

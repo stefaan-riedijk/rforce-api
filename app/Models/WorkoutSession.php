@@ -15,7 +15,7 @@ class WorkoutSession extends Model
     ];
 
     protected $fillable = [
-        'id','title','description','estimated_duration','user_id'
+        'id','uuid','title','description','estimated_duration','user_id'
     ];
     
     public function exercises()
@@ -33,9 +33,14 @@ class WorkoutSession extends Model
         parent::boot();
 
         static::creating(function ($model) {
-            if (empty($model->id)) {
-                $model->id = (string) Str::uuid(); // Generate ULID
+            if (empty($model->uuid)) {
+                $model->uuid = (string) Str::uuid(); // Generate ULID
             }
         });
     }
+
+    public function getRouteKeyName()
+{
+    return 'uuid'; // This ensures the model is found using UUIDs
+}
 }

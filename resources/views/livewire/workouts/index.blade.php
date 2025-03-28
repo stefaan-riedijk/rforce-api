@@ -70,7 +70,7 @@ new class extends Component {
             <x-card class="h-30 cursor-pointer border border-black bg-gray-300 shadow-lg"
                 wire:click="showView({{ $workout->id }})">
                 <x-slot name="title" class="!font-bold italic">
-                    <a href="{{ route('workouts.show', ['id' => $workout->id]) }}" class="">
+                    <a href="{{ route('workouts.show', ['uuid' => $workout->uuid]) }}" class="">
                         {{ $workout->title }}
                     </a>
                 </x-slot>

@@ -43,9 +43,8 @@ Route::get('workouts', function () {
 })->middleware(['auth'])->name('workouts');
 Route::view('workouts/create', 'app.workouts.create')->middleware(['auth'])->name('workouts.create');
 // ///// Show workout plan route without auth middleware
-Route::get('workouts/{id}', function ($id) {
-    $workoutSession = WorkoutSession::with(['user','exercises'])->findOrFail($id);
-
+Route::get('workouts/{uuid}', function ($uuid) {
+    $workoutSession = WorkoutSession::with(['user','exercises'])->where('uuid',$uuid)->firstOrFail();
     return view('app.workouts.show',[
         'program' => $workoutSession,
         'exercises' => $workoutSession->exercises
